@@ -8,7 +8,6 @@ option(TNTN_DOWNLOAD_DEPS "download dependencies during cmake configure" ON)
 
 set(CMAKE_CXX_STANDARD 14)
 
-
 # get the current working branch
 execute_process(
     COMMAND git describe --all --dirty
@@ -45,8 +44,6 @@ if(SYSTEM_GDAL_VERSION VERSION_LESS "2.2")
 endif()
 
 # Boost
-set(Boost_USE_STATIC_LIBS ON CACHE BOOL "" FORCE)
-set(Boost_USE_STATIC_LIBS ON)
 find_package(Boost REQUIRED COMPONENTS
     program_options
     filesystem
