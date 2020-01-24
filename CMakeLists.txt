@@ -49,6 +49,7 @@ find_package(Boost REQUIRED COMPONENTS
     filesystem
     system
 )
+set(Boost_USE_STATIC_LIBS ON)
 
 include("download-deps.cmake")
 find_path(TNTN_LIBGLM_SOURCE_DIR NAMES "glm/glm.hpp" HINTS "${CMAKE_SOURCE_DIR}/3rdparty/glm-0.9.9.0/")

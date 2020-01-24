@@ -28,9 +28,10 @@ RUN \
 ADD . /usr/local/src/tin-terrain/
 RUN mkdir /var/tmp/tin-terrain-build/
 WORKDIR /var/tmp/tin-terrain-build/
-RUN cmake Boost_USE_STATIC_LIBS=1 -DCMAKE_BUILD_TYPE=Debug /usr/local/src/tin-terrain/
+RUN cmake -DCMAKE_BUILD_TYPE=Debug /usr/local/src/tin-terrain/
 
-RUN VERBOSE=1 __LITTLE_ENDIAN__=1 make -j`nproc`
+RUN VERBOSE=1 make -j`nproc`
 RUN cp ./tin-terrain /usr/local/bin/
 RUN rm -rf /var/tmp/tin-terrain-build/
+RUN ls /usr/local/bin
 WORKDIR /home
