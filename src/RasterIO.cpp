@@ -260,7 +260,7 @@ static bool get_transformation_matrix(GDALDataset* dataset, TransformationMatrix
         return false;
     }
 
-    if(fabs(gt.scale_x) != fabs(gt.scale_y))
+    if(fabs(gt.scale_x - gt.scale_y) < std::numeric_limits<double>::epsilon())
     {
         TNTN_LOG_ERROR("Can not process rasters with non square pixels ({}x{})",
                        fabs(gt.scale_x),
