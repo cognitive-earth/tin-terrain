@@ -9,7 +9,6 @@ RUN \
         git \
         cmake \
         make \
-        python \
         g++ \
         gcc \
         build-base \
