@@ -75,7 +75,7 @@ void Mesh::generate_triangles()
         return;
     }
 
-    TNTN_LOG_DEBUG("generate triangels...");
+    TNTN_LOG_DEBUG("generate triangles...");
 
     m_triangles.reserve(m_faces.size());
 
