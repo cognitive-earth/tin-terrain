@@ -125,9 +125,15 @@ static unsigned int quantize_coordinate(const double v, const double min, const 
 {
     TNTN_ASSERT(v >= min && v <= max);
     const double delta = max - min;
-    TNTN_ASSERT(delta > 0);
+    TNTN_ASSERT(delta >= 0);
     const double offset_to_min = (v - min);
     TNTN_ASSERT(offset_to_min >= 0 && offset_to_min <= delta);
+
+    // If min == max, just return 0
+    if (delta == 0) {
+      return 0;
+    }
+
     return scale_coordinate(offset_to_min / delta);
 }
 
@@ -136,7 +142,7 @@ static double dequantize_coordinate(const int v, const double min, const double 
     const double unscaled_v = unscale_coordinate(v);
 
     const double delta = max - min;
-    TNTN_ASSERT(delta > 0);
+    TNTN_ASSERT(delta >= 0);
 
     const double offset_to_min = unscaled_v * delta;
     const double deq_coord = min + offset_to_min;
