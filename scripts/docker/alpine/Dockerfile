@@ -15,7 +15,7 @@ RUN \
         linux-headers \
         bzip2-dev \
         musl-dev \
-        gdal-dev \
+        gdal-dev=3.1.0-r2 \
         geos-dev \
         proj-dev \
         libgeotiff-dev \
